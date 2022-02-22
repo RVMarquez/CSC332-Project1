@@ -53,7 +53,9 @@ void loop() {
 
   if (interval) { //Waiting to see if enough time has passed
     if ( (millis() - startTime) >= interval ){
-      if ( LEDValue < 850 ){
+      if ( LEDValue < 850 ){                             //This value must be adjusted given the environment
+                                                         //Upper line of commented code can be used to run the for a second to see the average light level
+                                                         //Subtract 100 from such level, and therefore yout treshold should work
         //LED is on - Morse code is being recieved
 
         interval = offTime;
@@ -86,7 +88,7 @@ void loop() {
   }
   totTime = 0;
 
-  delay (100);
+  //delay (100);
 }
 
 void convert(String text){
